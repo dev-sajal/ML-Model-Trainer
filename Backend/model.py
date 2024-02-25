@@ -108,8 +108,23 @@ class GenericModel:
             y,
             cv=3,
             score_name="accuracy",
+            score_type="train",
+            scoring="accuracy",
+            shuffle=True,
+            random_state=10
+        )
+        display.figure_.savefig("learning_curve_train.png")
+        
+        display = LearningCurveDisplay.from_estimator(
+            self.model,
+            X,
+            y,
+            cv=3,
+            score_name="accuracy",
             score_type="both",
             scoring="accuracy",
+            shuffle=True,
+            random_state=10
         )
         display.figure_.savefig("learning_curve.png")
         return display
